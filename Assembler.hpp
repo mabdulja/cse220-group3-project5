@@ -17,7 +17,8 @@
 // Web:   http://kevin.floorsoup.com
 //**************************************************************************************************************
 // Write the preprocessor guard.
-???
+#ifndef ASSEMBLER_H
+#define ASSEMBLER_H
 
 #include "DataSegment.hpp"
 #include "Instr.hpp"
@@ -34,7 +35,41 @@
 //==============================================================================================================
 
 // Write the class declaration for Assembler.
-???
+using namespace std;
+
+class Assembler
+{
+public:
+	Assembler(string &, string &);
+	~Assembler()
+	int Run();
+
+protected:
+	void Assemble(const int pPass); //it said uint in the instructions is that a typo or do we have a uint type somewhere in the program?
+	void AssembleDirective(string const& pPass); 
+	Instr *AssembleInstr(string const& mLabel, string const& = "");
+	Instr *AssembleInstrTypeB(string const& mLabel, string const& = "");
+	Instr *AssembleInstrTypeN(string const& mLabel, string const& = "");
+	Instr *AssembleInstrTypeR(string const& mLabel, string const& = "");
+	Instr *AssembleInstrTypeRI(string const& mLabel, string const& = "");
+	Instr *AssembleInstrTypeRV(string const& mLabel, string const& = "");
+	void AssembleLabel(string const& pName);
+	void AssembleVariable(string const& pName);
+	void WriteBinary() const;
+private:
+	Assembler();
+	Assembler(Assembler const& pAssembler);
+	Assembler& operator=(Assembler const& pAssembler);
+
+	string mBinFname;
+	Address mCurrAddr;
+	DataSegment mDataSeg;
+	Lex mLex;
+	string mSrcFname;
+	TextSegment mTextSeg;
+	
+
+}
 
 // End the preprocessor guard.
-???
+#endif 
