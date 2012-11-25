@@ -18,7 +18,9 @@
 // Web:   http://kevin.floorsoup.com
 //**************************************************************************************************************
 // Preprocessor guard.
-???
+#ifndef OPERAND_H
+#define OPERAND_H
+
 
 #include <string>
 #include "Types.hpp"
@@ -28,7 +30,21 @@
 //==============================================================================================================
 
 // Write the class declaration
-???
+abstract class Operand
+{
+public:
+	Operand(string const& pOpString = "");
+	Operand(Operand const& pOperand);
+	//pure virtual ~Operand();
+	string GetString() const;
+	Operand& operator=(Operand const& pOperand);
+	void SetString(string const& pOpString);
+protected:
+	void Copy(Operand const& pOperand);
+private:
+	string mOpString;
+
+};
 
 // End preprocessor guard.
-???
+#endif

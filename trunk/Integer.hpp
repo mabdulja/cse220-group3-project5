@@ -18,7 +18,8 @@
 // Web:   http://kevin.floorsoup.com
 //**************************************************************************************************************
 // Preprocessor guard.
-???
+#ifndef INTEGER_H
+#define INTEGER_H
 
 #include "Operand.hpp"
 
@@ -27,7 +28,21 @@
 //==============================================================================================================
 
 // Write the class declaration.
-???
+class Integer : public Operand
+{
+public:
+	Integer(string const& pValue = "")
+	Integer(Integer const& pInteger);
+	~Integer();
+	int32 GetValue() const;
+	Integer& operator=(Integer const& pInteger);
+	void SetValue(int32 const pValue);
+protected:
+	void Copy(Integer const& pInteger);
+private:
+	int32 mInt;
+
+};
 
 // End preprocessor guard.
-???
+#endif

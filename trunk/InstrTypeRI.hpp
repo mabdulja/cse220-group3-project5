@@ -29,6 +29,8 @@
 #include <string>
 #include "Integer.hpp"
 #include "InstrTypeR.hpp"
+using namespace std;
+
 
 //==============================================================================================================
 // CLASS: InstrTypeR (derived from Instr)
