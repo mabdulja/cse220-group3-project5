@@ -82,8 +82,14 @@ Assembler::~Assembler
 // Call WriteBinary() to write the data and text segments to the binary file.
 // Return 0 to indicate success.
 //--------------------------------------------------------------------------------------------------------------
-???
-
+int Assembler::Run()
+{
+    Assemble(1);
+    mLex.Reset();
+    Assemble(2);
+    WriteBinary();
+    return 0;
+}
 //==============================================================================================================
 // PROTECTED FUNCTION MEMBERS
 //==============================================================================================================
