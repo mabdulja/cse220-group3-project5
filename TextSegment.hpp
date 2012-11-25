@@ -18,13 +18,16 @@
 // Web:   http://kevin.floorsoup.com
 //**************************************************************************************************************
 // Preprocess guard.
-???
+#ifndef TEXTSEGMENT_H
+#define TEXTSEGMENT_H
 
 // Figure out what header file you have to include to use the C++ STL std::map class.
-???
+using namespace std;
+#include <map>
+#include <vector>
 
 // Figure out what header file you have to include to use the C++ STL std::vector class.
-???
+
 
 #include <string>
 #include "Instr.hpp"
@@ -37,11 +40,23 @@
 //==============================================================================================================
 
 // Write the class declaration.
-???
 
-...
-
-    //----------------------------------------------------------------------------------------------------------
+class TextSegment
+{
+public:
+	TextSegment(Address const pAddress= 0);
+	TextSegment(TextSegment const& pTextSegment);
+	~TextSegment();
+	void AddInstr(Instr *pInstr);
+	void AddLabel(Label const& pLabel);
+	Byte *GetContents() const;
+	Label GetLabel(string const& pName);
+	uint32 GetSize() const;
+	TextSegment& operator=(TextSegment const& pTextSegment);
+protected:
+	void Copy(TextSegment const& pTextSegment);
+private:
+	//----------------------------------------------------------------------------------------------------------
     // Declare a data member named mInstrs which is an object of the templated STL class vector<Instr>.
     //----------------------------------------------------------------------------------------------------------
     std::vector<Instr> mInstrs;
@@ -54,4 +69,4 @@
 };
 
 // End preprocessor guard.
-???
+#endif

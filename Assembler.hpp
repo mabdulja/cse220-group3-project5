@@ -47,12 +47,12 @@ public:
 protected:
 	void Assemble(const int pPass); //it said uint in the instructions is that a typo or do we have a uint type somewhere in the program?
 	void AssembleDirective(string const& pPass); 
-	Instr *AssembleInstr(string const& mLabel, string const& = "");
-	Instr *AssembleInstrTypeB(string const& mLabel, string const& = "");
-	Instr *AssembleInstrTypeN(string const& mLabel, string const& = "");
-	Instr *AssembleInstrTypeR(string const& mLabel, string const& = "");
-	Instr *AssembleInstrTypeRI(string const& mLabel, string const& = "");
-	Instr *AssembleInstrTypeRV(string const& mLabel, string const& = "");
+	Instr *AssembleInstr(string const& pMnemonic, string const& mLabel = "");
+	Instr *AssembleInstrTypeB(string const& pMnemonic, string const& mLabel = "");
+	Instr *AssembleInstrTypeN(string const& pMnemonic, string const& mLabel = "");
+	Instr *AssembleInstrTypeR(string const& pMnemonic, string const& mLabel = "");
+	Instr *AssembleInstrTypeRI(string const& pMnemonic, string const& mLabel = "");
+	Instr *AssembleInstrTypeRV(string const& pMnemonic, string const& mLabel = "");
 	void AssembleLabel(string const& pName);
 	void AssembleVariable(string const& pName);
 	void WriteBinary() const;
