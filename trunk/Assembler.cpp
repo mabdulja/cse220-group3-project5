@@ -60,7 +60,11 @@ Assembler::Assembler
 // Does nothing, but remember, if you do not write a destructor, then this is the one that will be generated
 // for you by the compiler.
 //--------------------------------------------------------------------------------------------------------------
-???
+Assembler::~Assembler
+    (
+    )
+{
+}
 
 //--------------------------------------------------------------------------------------------------------------
 // Run()
