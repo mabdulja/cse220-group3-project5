@@ -67,9 +67,9 @@ private:
 	Lex mLex;
 	string mSrcFname;
 	TextSegment mTextSeg;
-	
 
-}
+
+};
 
 // End the preprocessor guard.
 #endif 
