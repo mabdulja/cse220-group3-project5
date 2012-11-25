@@ -18,7 +18,8 @@
 // Web:   http://kevin.floorsoup.com
 //**************************************************************************************************************
 // Preprocessor guard.
-???
+#ifndef INSTRTYPER_H
+#define INSTRTYPER_H
 
 #include <string>
 #include "Instr.hpp"
@@ -28,7 +29,25 @@
 // CLASS: InstrTypeR (derived from Instr)
 //==============================================================================================================
 // Write the class declaration
-???
+class InstrTypeR : public Instr
+{
+public:
+	InstrTypeR();
+	InstrTypeR(string const& pMnemonic, Register const& pReg);
+	InstrTypeR(InstrTypeR const& pInstr);
+	virtual ~InstrTypeR();
+	virtual void Encode();
+	Register GetRegister() const;
+	InstrTypeR& operator=(InstrTypeR const& pInstr);
+protected:
+	void Copy(InstrTypeR const& pInstr);
+	void SetRegister(Register const& pRegister);
+private:
+	Regiser mRegister;
+	
+
+};
+
 
 // End preprocessor guard.
-???
+#endif
