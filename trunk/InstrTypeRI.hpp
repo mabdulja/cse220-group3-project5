@@ -17,19 +17,42 @@
 // Email: burgerk@asu
 // Web:   http://kevin.floorsoup.com
 //**************************************************************************************************************
-// Preprocessor guard.
-???
+
+
+//==============================================================================================================
+// CLASS: InstrTypeRI (derived from InstrTypeR)
+//==============================================================================================================
+
+#ifndef INSTRTYPERI_H
+#define INSTRTYPERI_H
 
 #include <string>
 #include "Integer.hpp"
 #include "InstrTypeR.hpp"
 
 //==============================================================================================================
-// CLASS: InstrTypeRI (derived from InstrTypeR)
+// CLASS: InstrTypeR (derived from Instr)
 //==============================================================================================================
+// Write the class declaration
+class InstrTypeRI : public InstrTypeR
+{
+public:
+	InstrTypeRI();
+	InstrTypeRI(string const& pMnemonic, Register const& pReg, Integer const& pInt);
+	InstrTypeRI(InstrTypeRI const& pInstr);
+	virtual ~InstrTypeRI();
+	virtual void Encode();
+	Integer GetInteger() const;
+	InstrTypeRI& operator=(InstrTypeRI const& pInstr);
+protected:
+	void Copy(InstrTypeRI const& pInstr);
+	void SetInteger(Integer const& pInteger);
+private:
+	Integer mInteger;
 
-// Write the class declaration.
-???
+
+};
+
 
 // End preprocessor guard.
-???
+#endif
