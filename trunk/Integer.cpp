@@ -42,7 +42,7 @@ using namespace std;
 //--------------------------------------------------------------------------------------------------------------
 Integer::Integer(string const& pValue) : Operand(pValue)
 {
-    char *newStr = pValue.c_str();
+    const char *newStr = pValue.c_str();
     int pInt = atoi(pValue.c_str());
     mInt = pInt;
 }
@@ -74,9 +74,9 @@ Integer::~Integer()
 // DESCRIPTION:
 // mInt accessor function.
 //--------------------------------------------------------------------------------------------------------------
-int32_t Integer::GetValue()
+int32_t Integer::GetValue() const
 {
-	return int32_t;
+	return mInt;
 }
 
 //--------------------------------------------------------------------------------------------------------------
@@ -115,7 +115,7 @@ void Integer::SetValue(int32_t const pValue)
 void Integer::Copy(Integer const& pInteger)
 {
 	Operand::Copy(pInteger);
-	SetValue(pInteger.GetValue);
+	SetValue(pInteger.GetValue());
 	
 }
 //==============================================================================================================
