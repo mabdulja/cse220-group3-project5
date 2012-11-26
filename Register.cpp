@@ -109,15 +109,11 @@ std::string Register::GetName() const
 // operator=()
 //--------------------------------------------------------------------------------------------------------------
 //???
-Register& Register::operator=
-    (
-    InstrTypeB const& pInstr
-    )
+Register& Register::operator=(Register const& pRegister)
 {
-    if (this != &pInstr) Copy(pInstr);
+    if (this != &pRegister) Copy(pRegister);
     return *this;
 }
-
 
 //--------------------------------------------------------------------------------------------------------------
 // SetName()
@@ -129,9 +125,9 @@ Register& Register::operator=
 // Call the Operand::SetString() function and pass pName as the param.
 //--------------------------------------------------------------------------------------------------------------
 //???
-void Register::SetString
+void Register::SetName(const std::string &pName)
 {
-	Operand::SetString(pName)
+	Operand::SetString(pName);
 }
 
 
