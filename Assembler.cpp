@@ -143,7 +143,7 @@ int Assembler::Run()
 //     token <- mLex.NextToken()                             -- Get the next token from the lex analyzer
 // End While                                                 --
 //--------------------------------------------------------------------------------------------------------------
-void Assembler::Assemble(const pPass)
+void Assembler::Assemble(const uint pPass)
 {
     mCurrAddr = 0;
     token = mLex.NextToken();
