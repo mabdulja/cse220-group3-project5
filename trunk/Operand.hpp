@@ -30,12 +30,12 @@
 //==============================================================================================================
 
 // Write the class declaration
-abstract class Operand
+class Operand
 {
 public:
 	Operand(string const& pOpString = "");
 	Operand(Operand const& pOperand);
-	//pure virtual ~Operand();
+	virtual ~Operand() = 0;
 	string GetString() const;
 	Operand& operator=(Operand const& pOperand);
 	void SetString(string const& pOpString);
