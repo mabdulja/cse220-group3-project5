@@ -33,16 +33,16 @@
 class Operand
 {
 public:
-	Operand(string const& pOpString = "");
+	Operand(std::string const& pOpString = "");
 	Operand(Operand const& pOperand);
 	virtual ~Operand() = 0;
-	string GetString() const;
+    std::string GetString() const;
 	Operand& operator=(Operand const& pOperand);
-	void SetString(string const& pOpString);
+	void SetString(std::string const& pOpString);
 protected:
 	void Copy(Operand const& pOperand);
 private:
-	string mOpString;
+    std::string mOpString;
 
 };
 
