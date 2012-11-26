@@ -145,9 +145,9 @@ void Register::SetName(const std::string &pName)
 // Call Operand::Copy() and pass pRegister as the param.
 //--------------------------------------------------------------------------------------------------------------
 //???
-void Register::Copy
+void Register::Copy(const Register &pRegister)
 {
-	Operand::Copy(pRegister)
+	Operand::Copy(pRegister);
 }
 
 //==============================================================================================================
