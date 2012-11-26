@@ -78,9 +78,9 @@ Register::~Register
 // If the name of this register is "%A" we return 0, otherwise we return 1.
 //--------------------------------------------------------------------------------------------------------------
 //???
-int Register::GetEncoding
+Byte Register::GetEncoding() const
 {
-	if (mOpString="%A")
+	if (mOpString == "%A")
 		return 0;
 	else
 		return 1;
