@@ -198,13 +198,13 @@ void Assembler::AssembleInstr(string const& pMnemonic, string const& mLabel = ""
     if (pMnemonic == "ADD" || "NEG" || "NOR" || "POP" || "PUSH" || "ROL")
         return AssembleInstrTypeR(pMnemonic, pLabel);
     else if(pMnemonic == "BEQ" || "BLT" || "BR" || "BSUB")
-        return AssembleInstrTypeB(pMnemonic, pLabel)
+        return AssembleInstrTypeB(pMnemonic, pLabel);
     else if(pMnemonic == "HALT" || "RET")
-        return AssembleInstrTypeN(pMnemonic, pLabel)
+        return AssembleInstrTypeN(pMnemonic, pLabel);
     else if(pMnemonic == "IN" || "OUT" || "LDI")
-        return AssembleInstrTypeRI(pMnemonic, pLabel)
+        return AssembleInstrTypeRI(pMnemonic, pLabel);
     else 
-        return AssembleInstrTypeRV(pMnemonic, pLabel)
+        return AssembleInstrTypeRV(pMnemonic, pLabel);
 }
 
 
