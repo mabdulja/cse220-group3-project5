@@ -33,7 +33,12 @@
 // Call mFin.open() and pass pSrcFname.c_str() as the paramter. See the comment in Integer.cpp about the
 // std::string::c_str() function.
 //--------------------------------------------------------------------------------------------------------------
-???
+Lex::Lex(std::string const& pSrcFname)
+{
+    Lex::mSrcFname = pSrcFname;
+    mFin.open(pSrcFname.c_str());
+    
+}
 
 //--------------------------------------------------------------------------------------------------------------
 // Dtor.
@@ -41,7 +46,10 @@
 // DESCRIPTION:
 // Closes mFin.
 //--------------------------------------------------------------------------------------------------------------
-???
+Lex::~Lex()
+{
+    mFin.close();
+}
 
 //--------------------------------------------------------------------------------------------------------------
 // NextToken()
@@ -63,7 +71,29 @@
 // While comment is true
 // Return token
 //--------------------------------------------------------------------------------------------------------------
-???
+std::string Lex::NextToken()
+{
+    bool comment;
+    std::string token;
+    
+    do {
+        {
+            mFin >> token;
+            if(Lex::mFin == false)
+            {
+                return "";
+            }
+            comment = false;
+            if(token[0] == ';')
+            {
+                SkipRestOfLine();
+                comment = true;
+            }
+        }
+    } while (comment == true);
+    
+    return token;
+}
 
 //--------------------------------------------------------------------------------------------------------------
 // Reset()
@@ -75,7 +105,11 @@
 // Call close() on mFin to close the file.
 // Call open() on mFin to reopen the file for reading.
 //--------------------------------------------------------------------------------------------------------------
-???
+void Lex::Reset()
+{
+    Lex::mFin.close();
+    Lex::mFin.open(Lex::mSrcFname);
+}
 
 //--------------------------------------------------------------------------------------------------------------
 // SkipRestOfLine()
@@ -87,7 +121,11 @@
 // Define an object named ignore as a string
 // Call getline(mFin, ignore, '\n') to read and throw away all chars on the line until the newline is reached.
 //--------------------------------------------------------------------------------------------------------------
-???
+void Lex::SkipRestOfLine()
+{
+    std::string ignore;
+    getline(Lex::mFin, ignore, '\n');
+}
 
 //==============================================================================================================
 // PROTECTED FUNCTION MEMBERS
