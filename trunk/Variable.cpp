@@ -30,7 +30,11 @@
 // initialize mAddress to pAddress, and to initialize mInitValue to pInitValue. The body of the constructor is
 // empty.
 //--------------------------------------------------------------------------------------------------------------
-???
+Variable::Variable(std::string const& pName, Address const pAddress, Word const pInitValue) : Operand(pName)
+{
+    mAddress = pAddress;
+    mInitValue = pInitValue;
+}
 
 //--------------------------------------------------------------------------------------------------------------
 // Copy ctor.
@@ -38,7 +42,10 @@
 // DESCRIPTION:
 // Call the Copy() function of this class.
 //--------------------------------------------------------------------------------------------------------------
-???
+Variable::Variable(Variable const& pVariable)
+{
+    Copy(pVariable);
+}
 
 //--------------------------------------------------------------------------------------------------------------
 // Dtor.
@@ -46,7 +53,10 @@
 // DESCRIPTION:
 // In this class, it is simply an empy function.
 //--------------------------------------------------------------------------------------------------------------
-???
+Variable::~Variable()
+{
+    
+}
 
 //--------------------------------------------------------------------------------------------------------------
 // GetAddress()
@@ -54,7 +64,10 @@
 // DESCRIPTION:
 // mAddress accessor function.
 //-------------------------------------------------------------------------------------------------------------
-???
+Address Variable::GetAddress() const
+{
+    return mAddress;
+}
 
 //--------------------------------------------------------------------------------------------------------------
 // GetInitValue()
@@ -62,7 +75,10 @@
 // DESCRIPTION:
 // mInitValue accessor function.
 //--------------------------------------------------------------------------------------------------------------
-???
+int32 Variable::GetInitValue() const
+{
+    return mInitValue;
+}
 
 //--------------------------------------------------------------------------------------------------------------
 // GetName()
@@ -71,13 +87,20 @@
 // Returns the name of the variable. The name is the mOpString data member that is inherited from the Operand
 // class. Call the Operand::GetString() function to get mOpString and return it.
 //--------------------------------------------------------------------------------------------------------------
-???
+std::string Variable::GetName() const
+{
+    return Variable::Operand::GetString();
+}
 
 //--------------------------------------------------------------------------------------------------------------
 // operator=()
 // Hint: look at the other source code files to see how this is done.
 //--------------------------------------------------------------------------------------------------------------
-???
+Variable& Variable::operator=(Variable const& pVariable)
+{
+    if (this != &pVariable) Copy(pVariable);
+    return *this;
+}
 
 //--------------------------------------------------------------------------------------------------------------
 // SetAddress()
@@ -85,7 +108,10 @@
 // DESCRIPTION:
 // mAddress mutator function.
 //--------------------------------------------------------------------------------------------------------------
-???
+void Variable::SetAddress(const Address pAddress)
+{
+    Variable::mAddress = pAddress;
+}
 
 //--------------------------------------------------------------------------------------------------------------
 // SetInitValue()
@@ -93,7 +119,10 @@
 // DESCRIPTION:
 // mInitValue mMutator function.
 //--------------------------------------------------------------------------------------------------------------
-???
+void Variable::SetInitValue(const int32 pInitValue)
+{
+    Variable::mInitValue = pInitValue;
+}
 
 //--------------------------------------------------------------------------------------------------------------
 // Setname()
@@ -102,7 +131,10 @@
 // Mutator function for the mString data member that is inherited from the Operand class. Call the Operand::
 // SetString() function and pass pName as the parameter.
 //--------------------------------------------------------------------------------------------------------------
-???
+void Variable::SetName(const std::string &pName)
+{
+    Variable::Operand::SetString(pName);
+}
 
 //==============================================================================================================
 // PROTECTED FUNCTIONS
@@ -119,7 +151,12 @@
 // Call SetAddress() with pVariable.GetAddress() as the parameter.
 // Call SetInitValue() with pVariable.GetInitValue() as the parameter.
 //--------------------------------------------------------------------------------------------------------------
-???
+void Variable::Copy(Variable const& pVariable)
+{
+    Operand::Copy(pVariable);
+    SetAddress(pVariable.GetAddress());
+    SetInitValue(pVariable.GetInitValue());
+}
 
 //==============================================================================================================
 // PRIVATE FUNCTIONS
