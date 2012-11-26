@@ -307,7 +307,7 @@ void *Assembler::AssembleInstrTypeN(string const& pMnemonic, string const& pLabe
 //--------------------------------------------------------------------------------------------------------------
 void *Assembler::AssembleInstrTypeR(string const& pMnemonic, string const& pLabel = "")
 {
-    strReg = mLex.NextToken();
+    string strReg = mLex.NextToken();
     Register reg(strReg);
     return new InstrTypeR(pMnemonic,reg);
 
@@ -328,9 +328,9 @@ void *Assembler::AssembleInstrTypeR(string const& pMnemonic, string const& pLabe
 //--------------------------------------------------------------------------------------------------------------
 void *Assembler::AssembleInstrTypeRI(string const& pMnemonic, string const& pLabel = "")
 {
-    strReg=mLex.NextToken();
+    string strReg=mLex.NextToken();
     Register reg(strReg);
-    strInt = mLex.NextToken();
+    string strInt = mLex.NextToken();
     Integer i(strInt);
     return new InstrTypeRI(pMnemonic,reg, i);
 
@@ -357,15 +357,17 @@ void *Assembler::AssembleInstrTypeRI(string const& pMnemonic, string const& pLab
 void *Assembler::AssembleInstrTypeRV(string const& pMnemonic, string const& pLabel = "")
 {
 
+    string strReg;
+    string strVar;
     if(pMnemonic == "LD" || "LDA")
     {
-        string strReg = mLex.NextToken();
-        string strVar = mLex.NextToken();
+        strReg = mLex.NextToken();
+        strVar = mLex.NextToken();
     }
     else 
     {
-        string strVar = mLex.NextToken();
-        string strReg = mLex.NextToken();
+        strVar = mLex.NextToken();
+        strReg = mLex.NextToken();
     }
 
     Variable var = mDataSeg.GetVariable(strVar);
@@ -404,8 +406,8 @@ void Assembler::AssembleLabel(string const& pName)
 //--------------------------------------------------------------------------------------------------------------
 void Assembler::AssembleLabel(string const& pName)
 {
-    strInitValue = mLex.NextToken();
-    initValue = atoi(strInitValue);
+    string strInitValue = mLex.NextToken();
+    int initValue = atoi(strInitValue);
     Variable newVar(pName,mCurrAddr,initValue);
     mDataSeg.AddVariable(newVar);
 
