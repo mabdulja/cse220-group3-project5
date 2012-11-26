@@ -58,7 +58,8 @@ protected:
 	void WriteBinary() const;
 private:
 	Assembler();
-	Assembler(Assembler const& pAssembler);
+        ~Assembler();
+        Assembler(Assembler const& pAssembler);
 	Assembler& operator=(Assembler const& pAssembler);
 
 	string mBinFname;
