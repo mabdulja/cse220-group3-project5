@@ -31,16 +31,16 @@
 class Integer : public Operand
 {
 public:
-	Integer(string const& pValue = "")
+	Integer(std::string const& pValue = "");
 	Integer(Integer const& pInteger);
 	~Integer();
-	int32 GetValue() const;
+	int32_t GetValue() const;
 	Integer& operator=(Integer const& pInteger);
-	void SetValue(int32 const pValue);
+	void SetValue(int32_t const pValue);
 protected:
 	void Copy(Integer const& pInteger);
 private:
-	int32 mInt;
+	int32_t mInt;
 
 };
 

@@ -64,7 +64,7 @@ Segment::~Segment
 // DESCRIPTION:
 // mAddress accessor function.
 //--------------------------------------------------------------------------------------------------------------
-uint32 Segment::GetAddress
+uint Segment::GetAddress
     (
     )
     const

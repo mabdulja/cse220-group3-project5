@@ -28,7 +28,10 @@
 // DESCRIPTION:
 // Does nothing.
 //--------------------------------------------------------------------------------------------------------------
-???
+InstrTypeRI::InstrTypeRI()
+{
+    
+}
 
 //--------------------------------------------------------------------------------------------------------------
 // Another ctor.
@@ -38,7 +41,11 @@
 // mMnemonic and mRegister data members that were inherited from Instr and InstrTypeR. Then initialize mInteger
 // to pInteger (either in the ctor body or the member init list).
 //--------------------------------------------------------------------------------------------------------------
-???
+InstrTypeRI::InstrTypeRI(string const& pMnemonic, Register const& pReg, Integer const& pInt):
+Instr(pMnemonic), mRegister(pReg)
+{
+    InstrTypeRI::mInteger = pInt;
+}
 
 //--------------------------------------------------------------------------------------------------------------
 // Copy ctor.
@@ -46,7 +53,10 @@
 // DESCRIPTION:
 // Calls Copy() and passess pInstr to make this object a copy of pInstr.
 //--------------------------------------------------------------------------------------------------------------
-???
+InstrTypeRI::InstrTypeRI(InstrTypeRI const& pInstr)
+{
+    InstrTypeRI::Copy(pInstr);
+}
 
 //--------------------------------------------------------------------------------------------------------------
 // Dtor.
@@ -54,7 +64,10 @@
 // DESCRIPTION:
 // Does nothing.
 //--------------------------------------------------------------------------------------------------------------
-???
+InstrTypeRI::~InstrTypeRI()
+{
+    
+}
 
 //--------------------------------------------------------------------------------------------------------------
 // Encode()
@@ -68,7 +81,13 @@
 // Call InstrTypeR::Encode()
 // Put the immediate into the proper bit positions of mEncoding.
 //--------------------------------------------------------------------------------------------------------------
-???
+void InstrTypeRI::Encode
+(
+)
+{
+    InstrTypeR::Encode();
+    mEncoding |= mRegister.GetEncoding() << 26;
+}
 
 //--------------------------------------------------------------------------------------------------------------
 // GetInteger()
@@ -76,12 +95,19 @@
 // DESCRIPTION:
 // mInteger accessor function.
 //--------------------------------------------------------------------------------------------------------------
-???
+Integer InstrTypeRI::GetInteger() const
+{
+    return InstrTypeRI::mInteger;
+}
 
 //--------------------------------------------------------------------------------------------------------------
 // operator=()
 //--------------------------------------------------------------------------------------------------------------
-???
+InstrTypeRI& InstrTypeRI::operator=(InstrTypeRI const& pInstr)
+{
+    if (this != &pInstr) Copy(pInstr);
+    return *this;
+}
 
 //==============================================================================================================
 // PROTECTED FUNCTION MEMBERS
@@ -98,7 +124,20 @@
 // Copy the mInteger data member of pInteger to this object's mInteger data member
 // Call Encode() to encode the instruction
 //--------------------------------------------------------------------------------------------------------------
-???
+void InstrTypeRI::Copy
+(
+ InstrTypeRI const& pInstr
+ )
+{
+    // Copy the base class (Instr) data members to 'this'.
+    InstrTypeRI::Copy(pInstr);
+    
+    // Copy the derived class (InstrTypeR) data members to 'this'.
+    SetRegister(pInstr.GetRegister());
+    
+    // Encode because the register has changed.
+    Encode();
+}
 
 //--------------------------------------------------------------------------------------------------------------
 // SetInteger()
@@ -106,7 +145,10 @@
 // DESCRIPTION:
 // mInteger mutator function.
 //--------------------------------------------------------------------------------------------------------------
-???
+void InstrTypeRI::SetInteger(const Integer &pInteger)
+{
+    InstrTypeRI::mInteger = pInteger;
+}
 
 //==============================================================================================================
 // PRIVATE FUNCTION MEMBERS
