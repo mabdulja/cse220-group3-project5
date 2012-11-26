@@ -41,13 +41,20 @@ typedef long double         ldouble;
     typedef uint            uint32;
 #elif _64_BIT_
     // If you have a 64-bit cpu, then you will have to figure out what these should be equivalent to.
-    typedef ???             int8;
-    typedef ???             int16;
-    typedef ???             int32;
-    typedef ???             uint8;
-    typedef ???             uint16;
-    typedef ???             uint32;
+    typedef char            int8;
+    typedef short           int16;
+    typedef int             int32;
+    typedef uchar           uint8;
+    typedef ushort          uint16;
+    typedef uint            uint32;
 #endif
+
+typedef char            int8;
+typedef short           int16;
+typedef int             int32;
+typedef uchar           uint8;
+typedef ushort          uint16;
+typedef uint            uint32;
 
 typedef uint32 Address;
 typedef uint8  Byte;
