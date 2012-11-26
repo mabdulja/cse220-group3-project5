@@ -29,7 +29,15 @@
 // Call the base class Operand::Operand(string const&) ctor to store the name of the register in the mOpString
 // data member inherited from Operand.
 //--------------------------------------------------------------------------------------------------------------
-???
+//???
+Operand::Operand
+    (
+    std::string const& pOpString
+    )
+    :
+    mOpString(pOpString)
+{
+}
 
 
 
@@ -70,7 +78,7 @@ Register::~Register
 // If the name of this register is "%A" we return 0, otherwise we return 1.
 //--------------------------------------------------------------------------------------------------------------
 //???
-int Register::GetEncoding()
+int Register::GetEncoding
 {
 	if (mOpString="%A")
 		return 0;
@@ -88,12 +96,28 @@ int Register::GetEncoding()
 // PSEUDOCODE:
 // Call the Operand::GetString() function and return what it returns.
 //--------------------------------------------------------------------------------------------------------------
-???
+//???
+std::string Register::GetName
+{
+Operand::GetString()
+
+}
+
+
 
 //--------------------------------------------------------------------------------------------------------------
 // operator=()
 //--------------------------------------------------------------------------------------------------------------
-???
+//???
+Register& Register::operator=
+    (
+    InstrTypeB const& pInstr
+    )
+{
+    if (this != &pInstr) Copy(pInstr);
+    return *this;
+}
+
 
 //--------------------------------------------------------------------------------------------------------------
 // SetName()
@@ -104,7 +128,12 @@ int Register::GetEncoding()
 // PSEUDOCODE:
 // Call the Operand::SetString() function and pass pName as the param.
 //--------------------------------------------------------------------------------------------------------------
-???
+//???
+void Register::SetString
+{
+	Operand::SetString(pName)
+}
+
 
 //==============================================================================================================
 // PROTECTED FUNCTIONS
@@ -119,7 +148,11 @@ int Register::GetEncoding()
 // PSEUDOCODE:
 // Call Operand::Copy() and pass pRegister as the param.
 //--------------------------------------------------------------------------------------------------------------
-???
+//???
+void Register::Copy
+{
+	Operand::Copy(pRegister)
+}
 
 //==============================================================================================================
 // PRIVATE FUNCTIONS
