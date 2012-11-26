@@ -45,7 +45,7 @@ public:
 	int Run();
 
 protected:
-	void Assemble(const int pPass); //it said uint in the instructions is that a typo or do we have a uint type somewhere in the program?
+	void Assemble(const uint pPass); 
 	void AssembleDirective(string const& pPass); 
 	Instr *AssembleInstr(string const& pMnemonic, string const& mLabel = "");
 	Instr *AssembleInstrTypeB(string const& pMnemonic, string const& mLabel = "");
