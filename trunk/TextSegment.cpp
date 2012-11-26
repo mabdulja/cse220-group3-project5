@@ -28,10 +28,9 @@
 // DESCRIPTION:
 // Calls the base class Segment::Segment(Address const) ctor to initialize the mAddress data member.
 //--------------------------------------------------------------------------------------------------------------
-TextSegment::TextSegment(Address const pAddress)
+TextSegment::TextSegment(Address const pAddress) : Segment(pAddress)
+                
 {
-    // hmm.. figure this out later...
-    Segment::Segment(pAddress);
 }
 
 //--------------------------------------------------------------------------------------------------------------
