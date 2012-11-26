@@ -152,14 +152,14 @@ void Assembler::Assemble(const uint pPass)
         
         if (token == ".")
         {
-            if (pPass = 1)
+            if (pPass == 1)
                 AssembleDirective(token);
             else
                 mLex.SkipRestOfLine();
         }
         else if (token == "$")
         {
-            if (pPass = 1){
+            if (pPass == 1){
                 AssembleVariable(token);
                 mCurrAddr++;
             }
@@ -168,13 +168,13 @@ void Assembler::Assemble(const uint pPass)
         }
         else if (token == "@")
         {
-            if (pPass = 1){
+            if (pPass == 1){
                 AssembleLabel(token);
                 mLex.SkipRestOfLine();
             }
             else{
                 string mnemonic = mLex.NextToken();
-                Instr inst = AssembleInstr(mnemonic, token);
+                Instr *inst = AssembleInstr(mnemonic, token);
                 mTextSeg.AddInstr(inst);
                 delete inst;
             }
@@ -185,7 +185,7 @@ void Assembler::Assemble(const uint pPass)
             if (pPass == 1)
                 mLex.SkipRestOfLine();
             else{
-                Instr inst = AssembleInstr(token, "");
+                Instr *inst = AssembleInstr(token, "");
                 mTextSeg.AddInstr(inst);
                 delete inst;
             }
