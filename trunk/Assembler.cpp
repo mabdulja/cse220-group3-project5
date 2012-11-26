@@ -146,8 +146,10 @@ int Assembler::Run()
 void Assembler::Assemble(const uint pPass)
 {
     mCurrAddr = 0;
-    token = mLex.NextToken();
-    while (token == "") do {
+    string token = mLex.NextToken();
+    while (token == "") 
+    {
+        
         if (token == ".")
         {
             if (pPass = 1)
@@ -176,8 +178,9 @@ void Assembler::Assemble(const uint pPass)
                 mTextSeg.AddInstr(inst);
                 delete inst;
             }
+            mCurrAddr++;
         }
-        mCurrAddr++;
+        
         else {
             if (pPass == 1)
                 mLex.SkipRestOfLine();
@@ -241,7 +244,7 @@ void Assembler::AssembleDirective(string const& pDirective)
 // End If
 //--------------------------------------------------------------------------------------------------------------
 
-void Assembler::AssembleInstr(string const& pMnemonic, string const& mLabel = "")
+void Assembler::AssembleInstr(string const& pMnemonic, string const& pLabel = "")
 {
     if (pMnemonic == "ADD" || "NEG" || "NOR" || "POP" || "PUSH" || "ROL")
         return AssembleInstrTypeR(pMnemonic, pLabel);
