@@ -33,7 +33,7 @@ class InstrTypeR : public Instr
 {
 public:
 	InstrTypeR();
-	InstrTypeR(string const& pMnemonic, Register const& pReg);
+	InstrTypeR(std::string const& pMnemonic, Register const& pReg);
 	InstrTypeR(InstrTypeR const& pInstr);
 	virtual ~InstrTypeR();
 	virtual void Encode();
@@ -43,7 +43,7 @@ protected:
 	void Copy(InstrTypeR const& pInstr);
 	void SetRegister(Register const& pRegister);
 private:
-	Regiser mRegister;
+	Register mRegister;
 	
 
 };

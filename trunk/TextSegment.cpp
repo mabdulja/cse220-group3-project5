@@ -28,7 +28,11 @@
 // DESCRIPTION:
 // Calls the base class Segment::Segment(Address const) ctor to initialize the mAddress data member.
 //--------------------------------------------------------------------------------------------------------------
-???
+TextSegment::TextSegment(Address const pAddress)
+{
+    // hmm.. figure this out later...
+    Segment::Segment(pAddress);
+}
 
 //--------------------------------------------------------------------------------------------------------------
 // Copy ctor.
@@ -36,7 +40,10 @@
 // DESCRIPTION:
 // Calls Copy() to make this object a copy of pSeg.
 //--------------------------------------------------------------------------------------------------------------
-???
+TextSegment::TextSegment(TextSegment const& pTextSegment)
+{
+    Copy(pTextSegment);
+}
 
 //--------------------------------------------------------------------------------------------------------------
 // Dtor.
@@ -44,7 +51,10 @@
 // DESCRIPTION:
 // Does nothing.
 //--------------------------------------------------------------------------------------------------------------
-???
+TextSegment::~TextSegment()
+{
+    
+}
 
 //--------------------------------------------------------------------------------------------------------------
 // AddInstr()
@@ -74,7 +84,12 @@
 // Instr object. If pInstr is a pointer to an Instr object, then *pInstr is the Instr object itself (remember
 // that * is the "dereference" operator in this context).
 //--------------------------------------------------------------------------------------------------------------
-???
+
+void TextSegment::AddInstr(Instr *pInstr)
+{
+// TODO: do stuff here
+    // DO STUFF HERE!!!
+}
 
 //--------------------------------------------------------------------------------------------------------------
 // AddLabel()
@@ -83,7 +98,12 @@
 // Adds a new label pLabel to the mLabels dictionary. The key is pLabel.GetName() and the value is pLabel.
 // Hint: look at DataSegment::AddVariable().
 //--------------------------------------------------------------------------------------------------------------
-???
+
+void TextSegment::AddLabel(const Label &pLabel)
+{
+    TextSegment::mLabels.AddLabel(pLabel.GetName());
+}
+
 
 //--------------------------------------------------------------------------------------------------------------
 // GetContents()
@@ -108,7 +128,10 @@
 //
 // HINT: Look at DataSegment::GetContents(). This function is very, very similar.
 //--------------------------------------------------------------------------------------------------------------
-???
+Byte *TextSegment::GetContents() const
+{
+    
+}
 
 //--------------------------------------------------------------------------------------------------------------
 // GetLabel()
