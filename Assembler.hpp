@@ -40,7 +40,7 @@ using namespace std;
 class Assembler
 {
 public:
-	Assembler(string &, string &);
+	Assembler(string pSrcFname, string mBinFname);
 	~Assembler();
 	int Run();
 
