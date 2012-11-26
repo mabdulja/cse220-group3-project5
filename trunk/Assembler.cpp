@@ -270,7 +270,7 @@ Instr *Assembler::AssembleInstr(string const& pMnemonic, string const& pLabel)
 // Label branchTargetLabel <- mTextSeg.GetLabel(strLabel) -- Retrieve the label from the text segment
 // return new InstrTypeB(pMnemonic, branchTargetLabel)    -- Assemble a type B instruction
 //--------------------------------------------------------------------------------------------------------------
-???
+//???
 
 //--------------------------------------------------------------------------------------------------------------
 // AssembleInstrTypeN()
@@ -282,7 +282,10 @@ Instr *Assembler::AssembleInstr(string const& pMnemonic, string const& pLabel)
 // PSEUDOCODE:
 // return new Instr(pMnemonic)
 //--------------------------------------------------------------------------------------------------------------
-???
+Instr *Assembler::AssembleInstrTypeN(string const& pMnemonic, string const& pLabel)
+{
+    return new Instr(pMnemonic);
+}
 
 //--------------------------------------------------------------------------------------------------------------
 // AssembleInstrTypeR()
