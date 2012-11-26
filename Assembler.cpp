@@ -424,7 +424,7 @@ void Assembler::AssembleLabel(string const& pName)
 // Binary bin                               -- Instantiate a Binary object named bin
 // bin.Write(mBinFname, mDataSeg, mTextSeg) -- Write the binary
 //--------------------------------------------------------------------------------------------------------------
-void WriteBinary() const
+void Assembler::WriteBinary() const 
 {
     Binary bin;
     bin.Write(mBinFname, mDataSeg, mTextSeg);

@@ -55,7 +55,7 @@ protected:
 	Instr *AssembleInstrTypeRV(string const& pMnemonic, string const& mLabel = "");
 	void AssembleLabel(string const& pName);
 	void AssembleVariable(string const& pName);
-	void WriteBinary() const;
+	void WriteBinary() const; 
 private:
 	Assembler();
         
