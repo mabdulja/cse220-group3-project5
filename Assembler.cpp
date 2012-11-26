@@ -272,7 +272,7 @@ Instr *Assembler::AssembleInstr(string const& pMnemonic, string const& pLabel)
 // Label branchTargetLabel <- mTextSeg.GetLabel(strLabel) -- Retrieve the label from the text segment
 // return new InstrTypeB(pMnemonic, branchTargetLabel)    -- Assemble a type B instruction
 //--------------------------------------------------------------------------------------------------------------
-Instr *Assembler::AssembleInstrTypeB(string const& pMnemonic, string const& pLabel = "")
+Instr *Assembler::AssembleInstrTypeB(string const& pMnemonic, string const& pLabel)
 {
     string strLabel = mLex.NextToken();
     Label branchTargetLabel = mTextSeg.GetLabel(strLabel);
@@ -289,7 +289,7 @@ Instr *Assembler::AssembleInstrTypeB(string const& pMnemonic, string const& pLab
 // PSEUDOCODE:
 // return new Instr(pMnemonic)
 //--------------------------------------------------------------------------------------------------------------
-Instr *Assembler::AssembleInstrTypeN(string const& pMnemonic, string const& pLabel = "")
+Instr *Assembler::AssembleInstrTypeN(string const& pMnemonic, string const& pLabel)
 {
     return new Instr(pMnemonic);
 
@@ -306,7 +306,7 @@ Instr *Assembler::AssembleInstrTypeN(string const& pMnemonic, string const& pLab
 // Register reg(strReg)                   -- Instantiate a Register object
 // return new InstrTypeR(pMnemonic, reg)  -- Assemble a type R instruction
 //--------------------------------------------------------------------------------------------------------------
-Instr *Assembler::AssembleInstrTypeR(string const& pMnemonic, string const& pLabel = "")
+Instr *Assembler::AssembleInstrTypeR(string const& pMnemonic, string const& pLabel)
 {
     string strReg = mLex.NextToken();
     Register reg(strReg);
@@ -327,7 +327,7 @@ Instr *Assembler::AssembleInstrTypeR(string const& pMnemonic, string const& pLab
 // Integer i(strInt)                          -- Instantiate an Integer object
 // return new InstrTypeRI(pMnemonic, reg, i)  -- Assemble a type RI instruction
 //--------------------------------------------------------------------------------------------------------------
-Instr *Assembler::AssembleInstrTypeRI(string const& pMnemonic, string const& pLabel = "")
+Instr *Assembler::AssembleInstrTypeRI(string const& pMnemonic, string const& pLabel)
 {
     string strReg=mLex.NextToken();
     Register reg(strReg);
@@ -355,7 +355,7 @@ Instr *Assembler::AssembleInstrTypeRI(string const& pMnemonic, string const& pLa
 // Register reg <- Register(strReg)              -- Instantiate a Register object
 // return new InstrTypeRV(pMnemonic, reg, var)   -- Assemble a type RV instruction
 //--------------------------------------------------------------------------------------------------------------
-Instr *Assembler::AssembleInstrTypeRV(string const& pMnemonic, string const& pLabel = "")
+Instr *Assembler::AssembleInstrTypeRV(string const& pMnemonic, string const& pLabel)
 {
 
     string strReg;
@@ -405,7 +405,7 @@ void Assembler::AssembleLabel(string const& pName)
 // Variable newVariable(pName, mCurrAddr, initValue)  -- Instantiate a new Variable object
 // mDataSeg.AddVariable(newVariable)                  -- Add the Variable to the data segment
 //--------------------------------------------------------------------------------------------------------------
-void Assembler::AssembleLabel(string const& pName)
+void Assembler::AssembleVariable(string const& pName)
 {
     string strInitValue = mLex.NextToken();
     int initValue = atoi(strInitValue);
