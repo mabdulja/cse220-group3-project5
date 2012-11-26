@@ -97,9 +97,9 @@ Byte Register::GetEncoding() const
 // Call the Operand::GetString() function and return what it returns.
 //--------------------------------------------------------------------------------------------------------------
 //???
-std::string Register::GetName
+std::string Register::GetName() const
 {
-Operand::GetString()
+    return Operand::GetString();
 
 }
 
