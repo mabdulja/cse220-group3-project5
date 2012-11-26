@@ -150,14 +150,14 @@ void Assembler::Assemble(const uint pPass)
     while (token == "") 
     {
         
-        if (token == ".")
+        if (token[0] == '.')
         {
             if (pPass == 1)
                 AssembleDirective(token);
             else
                 mLex.SkipRestOfLine();
         }
-        else if (token == "$")
+        else if (token[0] == '$')
         {
             if (pPass == 1){
                 AssembleVariable(token);
@@ -166,7 +166,7 @@ void Assembler::Assemble(const uint pPass)
             else
                 mLex.SkipRestOfLine();
         }
-        else if (token == "@")
+        else if (token[0] == '@')
         {
             if (pPass == 1){
                 AssembleLabel(token);
@@ -213,7 +213,7 @@ void Assembler::Assemble(const uint pPass)
 //--------------------------------------------------------------------------------------------------------------
 void Assembler::AssembleDirective(string const& pDirective)
 {
-    Address cAddress = atoi(mLex.NextToken.c_str());
+    Address cAddress = atoi(mLex.NextToken().c_str());
     if(pDirective==".DATA")
         mDataSeg.SetAddress(cAddress);
     else
@@ -244,7 +244,7 @@ void Assembler::AssembleDirective(string const& pDirective)
 // End If
 //--------------------------------------------------------------------------------------------------------------
 
-void Assembler::AssembleInstr(string const& pMnemonic, string const& pLabel = "")
+Instr *Assembler::AssembleInstr(string const& pMnemonic, string const& pLabel)
 {
     if (pMnemonic == "ADD" || "NEG" || "NOR" || "POP" || "PUSH" || "ROL")
         return AssembleInstrTypeR(pMnemonic, pLabel);
