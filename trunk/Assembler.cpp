@@ -143,6 +143,54 @@ int Assembler::Run()
 //     token <- mLex.NextToken()                             -- Get the next token from the lex analyzer
 // End While                                                 --
 //--------------------------------------------------------------------------------------------------------------
+void Assembler::Assemble(const pPass)
+{
+    mCurrAddr = 0;
+    token = mLex.NextToken();
+    while (token == "") do {
+        if (token == ".")
+        {
+            if (pPass = 1)
+                AssembleDirective(token);
+            else
+                mLex.SkipRestOfLine();
+        }
+        else if (token == "$")
+        {
+            if (pPass = 1){
+                AssembleVariable(token);
+                mCurrAddr++;
+            }
+            else
+                mLex.SkipRestOfLine();
+        }
+        else if (token == "@")
+        {
+            if (pPass = 1){
+                AssembleLabel(token);
+                mLex.SkipRestOfLine();
+            }
+            else{
+                string mnemonic = mLex.NextToken();
+                Instr inst = AssembleInstr(mnemonic, token);
+                mTextSeg.AddInstr(inst);
+                delete inst;
+            }
+        }
+        mCurrAddr++;
+        else {
+            if (pPass == 1)
+                mLex.SkipRestOfLine();
+            else{
+                Instr inst = AssembleInstr(token, "");
+                mTextSeg.AddInstr(inst);
+                delete inst;
+            }
+            mCurrAddr++;
+        }
+        token = mLex.NextToken();
+    }
+}
 
 
 //--------------------------------------------------------------------------------------------------------------
