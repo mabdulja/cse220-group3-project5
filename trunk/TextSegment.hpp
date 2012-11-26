@@ -41,7 +41,7 @@ using namespace std;
 
 // Write the class declaration.
 
-class TextSegment
+class TextSegment : public Segment
 {
 public:
 	TextSegment(Address const pAddress= 0);
