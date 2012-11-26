@@ -41,7 +41,7 @@ class Assembler
 {
 public:
 	Assembler(string &, string &);
-	~Assembler()
+	~Assembler();
 	int Run();
 
 protected:
@@ -58,7 +58,6 @@ protected:
 	void WriteBinary() const;
 private:
 	Assembler();
-        ~Assembler();
         Assembler(Assembler const& pAssembler);
 	Assembler& operator=(Assembler const& pAssembler);
 
