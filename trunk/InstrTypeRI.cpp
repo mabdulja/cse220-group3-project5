@@ -42,7 +42,7 @@ InstrTypeRI::InstrTypeRI()
 // to pInteger (either in the ctor body or the member init list).
 //--------------------------------------------------------------------------------------------------------------
 InstrTypeRI::InstrTypeRI(string const& pMnemonic, Register const& pReg, Integer const& pInt):
-Instr(pMnemonic), mRegister(pReg)
+InstrTypeR(pMnemonic, pReg)
 {
     InstrTypeRI::mInteger = pInt;
 }
@@ -86,7 +86,7 @@ void InstrTypeRI::Encode
 )
 {
     InstrTypeR::Encode();
-    mEncoding |= mRegister.GetEncoding() << 26;
+    mEncoding |= mInteger.GetValue();
 }
 
 //--------------------------------------------------------------------------------------------------------------
