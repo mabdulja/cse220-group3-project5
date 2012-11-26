@@ -408,7 +408,7 @@ void Assembler::AssembleLabel(string const& pName)
 void Assembler::AssembleVariable(string const& pName)
 {
     string strInitValue = mLex.NextToken();
-    int initValue = atoi(strInitValue);
+    int initValue = atoi(strInitValue.c_str());
     Variable newVar(pName,mCurrAddr,initValue);
     mDataSeg.AddVariable(newVar);
 
