@@ -101,7 +101,7 @@ void TextSegment::AddInstr(Instr *pInstr)
 
 void TextSegment::AddLabel(const Label &pLabel)
 {
-    TextSegment::mLabels.AddLabel(pLabel.GetName());
+    mLabels[pLabel.GetName()] = pLabel;
 }
 
 
