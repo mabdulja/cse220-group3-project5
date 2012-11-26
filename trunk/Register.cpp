@@ -80,7 +80,7 @@ Register::~Register
 //???
 Byte Register::GetEncoding() const
 {
-	if (mOpString == "%A")
+	if (Register::GetName() == "%A")
 		return 0;
 	else
 		return 1;
