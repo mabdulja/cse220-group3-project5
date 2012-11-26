@@ -22,6 +22,9 @@
 #include "Label.hpp"
 #include "Register.hpp"
 #include "Variable.hpp"
+#include <cstring>
+#include <string>
+
 
 //==============================================================================================================
 // PUBLIC FUNCTION MEMBERS
@@ -140,7 +143,7 @@ int Assembler::Run()
 //     token <- mLex.NextToken()                             -- Get the next token from the lex analyzer
 // End While                                                 --
 //--------------------------------------------------------------------------------------------------------------
-???
+
 
 //--------------------------------------------------------------------------------------------------------------
 // AssembleDirective()
@@ -157,9 +160,15 @@ int Assembler::Run()
 // End If                                   --
 // mCurrAddr <- address                     -- Set mCurrAddr to the new address
 //--------------------------------------------------------------------------------------------------------------
-void Assembler::AssembleDirective(string const& pPass)
+void Assembler::AssembleDirective(string const& pDirective)
 {
-    
+    Address cAddress = atoi(mLex.NextToken.c_str());
+    if(pDirective==".DATA")
+        mDataSeg.SetAddress(cAddress);
+    else
+        mTextSeg.SetAddress(cAddress);
+    mCurrAddr = cAddress;
+
     
 }
 
@@ -184,7 +193,19 @@ void Assembler::AssembleDirective(string const& pPass)
 // End If
 //--------------------------------------------------------------------------------------------------------------
 
-void Ass
+void Assembler::AssembleInstr(string const& pMnemonic, string const& mLabel = "")
+{
+    if (pMnemonic == "ADD" || "NEG" || "NOR" || "POP" || "PUSH" || "ROL")
+        return AssembleInstrTypeR(pMnemonic, pLabel);
+    else if(pMnemonic == "BEQ" || "BLT" || "BR" || "BSUB")
+        return AssembleInstrTypeB(pMnemonic, pLabel)
+    else if(pMnemonic == "HALT" || "RET")
+        return AssembleInstrTypeN(pMnemonic, pLabel)
+    else if(pMnemonic == "IN" || "OUT" || "LDI")
+        return AssembleInstrTypeRI(pMnemonic, pLabel)
+    else 
+        return AssembleInstrTypeRV(pMnemonic, pLabel)
+}
 
 
 //--------------------------------------------------------------------------------------------------------------
