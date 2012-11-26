@@ -29,7 +29,7 @@
 // Call the base class Operand::Operand(string const&) ctor to store the name of the register in the mOpString
 // data member inherited from Operand.
 //--------------------------------------------------------------------------------------------------------------
-//???
+
 Operand::Operand
     (
     std::string const& pOpString
@@ -47,7 +47,7 @@ Operand::Operand
 // DESCRIPTION:
 // Calls Copy().
 //--------------------------------------------------------------------------------------------------------------
-//???
+
 Register::Register
 	(
 	Register const& pRegister
@@ -63,7 +63,7 @@ Register::Register
 // DESCRIPTION:
 // Does nothing.
 //--------------------------------------------------------------------------------------------------------------
-//???
+
 Register::~Register
 	(
 	)
@@ -77,7 +77,7 @@ Register::~Register
 // DESCRIPTION:
 // If the name of this register is "%A" we return 0, otherwise we return 1.
 //--------------------------------------------------------------------------------------------------------------
-//???
+
 Byte Register::GetEncoding() const
 {
 	if (Register::GetName() == "%A")
@@ -96,7 +96,7 @@ Byte Register::GetEncoding() const
 // PSEUDOCODE:
 // Call the Operand::GetString() function and return what it returns.
 //--------------------------------------------------------------------------------------------------------------
-//???
+
 std::string Register::GetName() const
 {
     return Operand::GetString();
@@ -108,7 +108,7 @@ std::string Register::GetName() const
 //--------------------------------------------------------------------------------------------------------------
 // operator=()
 //--------------------------------------------------------------------------------------------------------------
-//???
+
 Register& Register::operator=(Register const& pRegister)
 {
     if (this != &pRegister) Copy(pRegister);
@@ -124,7 +124,7 @@ Register& Register::operator=(Register const& pRegister)
 // PSEUDOCODE:
 // Call the Operand::SetString() function and pass pName as the param.
 //--------------------------------------------------------------------------------------------------------------
-//???
+
 void Register::SetName(const std::string &pName)
 {
 	Operand::SetString(pName);
@@ -144,7 +144,7 @@ void Register::SetName(const std::string &pName)
 // PSEUDOCODE:
 // Call Operand::Copy() and pass pRegister as the param.
 //--------------------------------------------------------------------------------------------------------------
-//???
+
 void Register::Copy(const Register &pRegister)
 {
 	Operand::Copy(pRegister);
