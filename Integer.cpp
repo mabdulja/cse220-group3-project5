@@ -19,7 +19,10 @@
 #include <cstdlib>      // For atoi() function.
 #include <sstream>      // For stringstream class.
 #include "Integer.hpp"
+#include <cstring>
+#include <string>
 
+using namespace std;
 //==============================================================================================================
 // PUBLIC FUNCTIONS
 //==============================================================================================================
@@ -39,8 +42,9 @@
 //--------------------------------------------------------------------------------------------------------------
 Integer::Integer(string const& pValue) : Operand(pValue)
 {
-	pInt = atoi(pValue.c_str());
-	mInt = pInt;
+    char *newStr = pValue.c_str();
+    int pInt = atoi(pValue.c_str());
+    mInt = pInt;
 }
 
 //--------------------------------------------------------------------------------------------------------------
