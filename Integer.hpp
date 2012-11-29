@@ -34,13 +34,13 @@ public:
 	Integer(std::string const& pValue = "");
 	Integer(Integer const& pInteger);
 	~Integer();
-	int32_t GetValue() const;
+	int32 GetValue() const;
 	Integer& operator=(Integer const& pInteger);
-	void SetValue(int32_t const pValue);
+	void SetValue(int32 const pValue);
 protected:
 	void Copy(Integer const& pInteger);
 private:
-	int32_t mInt;
+	int32 mInt;
 
 };
 
