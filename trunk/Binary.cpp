@@ -18,6 +18,7 @@
 //**************************************************************************************************************
 #include <fstream>
 #include "Binary.hpp"
+using namespace std;
 
 //==============================================================================================================
 // PUBLIC FUNCTION MEMBERS
@@ -92,7 +93,28 @@ Binary::~Binary
 // Byte type = 0;
 // bout.write(reinterpret_cast<char *>(&type), 1); 
 //--------------------------------------------------------------------------------------------------------------
-???
+//???
+void Write
+    (
+	string const& pBinFname,
+	DataSegment& pDataSeg,
+	TextSegment& pTextSeg,
+    )
+{
+	std::ofstream bout;
+	bout.open (pBinFname.c_str(), std::ios_base::binary);
+	bout.write("K1BIN", 5);
+	Address initPC = pTextSeg.GetAddress();
+	bout.write(reinterpret_cast<char *>(&initPC), 4);
+	char arr[7]={0};
+	bout.write (arr,7);
+
+	char data=0;
+	bout.write (&data,1);
+	uint32 size =pDataSeg.GetSize();
+
+}
+
 
 //==============================================================================================================
 // PROTECTED FUNCTION MEMBERS
