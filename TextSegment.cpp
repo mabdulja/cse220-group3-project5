@@ -145,7 +145,7 @@ Byte *TextSegment::GetContents() const
     //
     // std::map<std::string, Variable>::iterator it = mVars.begin();
     
-    std::map<std::string, Instr>::const_iterator it = mInstrs.begin();
+    std::vector<Instr>::const_iterator it = mInstrs.begin();
     
     // Iterate over each element of the map.
     while (it != mInstrs.end()) {
@@ -153,7 +153,7 @@ Byte *TextSegment::GetContents() const
         // 'it' is a pointer to the element. (*it) dereferences 'it' and then we retrieve the value
         // of this map element by accessing the 'second' data member of the iterator. Since the map
         // values are Variables, this is a Variable object.
-        Instr instr = (*it).second;
+        Instr instr = (*it);
         
         // Get the initial value of the variable. Note: the initial value is stored in 2's complement
         // notation (to handle negative initial values) so the data type returned is int32 rather than
