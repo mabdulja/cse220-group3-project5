@@ -93,12 +93,12 @@ Binary::~Binary
 // Byte type = 0;
 // bout.write(reinterpret_cast<char *>(&type), 1); 
 //--------------------------------------------------------------------------------------------------------------
-//???
-void Write
+
+void Binary::Write
     (
 	string const& pBinFname,
-	DataSegment& pDataSeg,
-	TextSegment& pTextSeg,
+	DataSegment const& pDataSeg,
+	TextSegment const& pTextSeg
     )
 {
 	std::ofstream bout;
@@ -109,10 +109,29 @@ void Write
 	char arr[7]={0};
 	bout.write (arr,7);
 
+	//.DATA Segment
 	char data=0;
 	bout.write (&data,1);
 	uint32 size =pDataSeg.GetSize();
+	bout.write (reinterpret_cast<char *> (&size), 4);
+	Address addr = pDataSeg.GetAddress();
+	bout.write (reinterpret_cast<char *>(&addr),4);
+	Byte *contents = pDataSeg.GetContents();
+	bout.write (reinterpret_cast<char *> (contents), size-9);
+	delete contents;
 
+	//.TEXT Segment
+	char text=1;
+	bout.write (&data,1);
+	uint32 size =pTextSeg.GetSize();
+	bout.write (reinterpret_cast<char *> (&size), 4);
+	addr = pTextSeg.GetAddress();
+	bout.write (reinterpret_cast<char *>(&addr),4);
+	contents = pTextSeg.GetContents();
+	bout.write (reinterpret_cast<char *> (contents), size-9);
+	delete contents;
+
+	bout.close();
 }
 
 
