@@ -145,7 +145,7 @@ Byte *TextSegment::GetContents() const
     //
     // std::map<std::string, Variable>::iterator it = mVars.begin();
     
-    std::map<std::string, Variable>::const_iterator it = mInstrs.begin();
+    std::map<std::string, Instr>::const_iterator it = mInstrs.begin();
     
     // Iterate over each element of the map.
     while (it != mInstrs.end()) {
