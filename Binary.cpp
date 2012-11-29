@@ -122,7 +122,7 @@ void Binary::Write
 
 	//.TEXT Segment
 	char text=1;
-	bout.write (&data,1);
+	bout.write (&text,1);
 	size =pTextSeg.GetSize();
 	bout.write (reinterpret_cast<char *> (&size), 4);
 	addr = pTextSeg.GetAddress();
