@@ -74,7 +74,7 @@ Integer::~Integer()
 // DESCRIPTION:
 // mInt accessor function.
 //--------------------------------------------------------------------------------------------------------------
-int32_t Integer::GetValue() const
+int32 Integer::GetValue() const
 {
 	return mInt;
 }
@@ -97,7 +97,7 @@ Integer& Integer::operator=
 // DESCRIPTION:
 // mInt mutator function.
 //--------------------------------------------------------------------------------------------------------------
-void Integer::SetValue(int32_t const pValue)
+void Integer::SetValue(int32 const pValue)
 {
 	mInt = pValue;
 }
