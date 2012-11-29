@@ -130,6 +130,50 @@ void TextSegment::AddLabel(const Label &pLabel)
 Byte *TextSegment::GetContents() const
 {
     
+    // 'offset' is the offset from the beginning of the 'contents' array where a Variable's initial
+    // value will be written. The first Variable's inital value will be written at offset 0.
+    uint offset = 0;
+    
+    // Dynamically allocate a 1D array of Bytes large enough to store all of the variables. The size()
+    // function on a map object returns the number of elements in the map. Since each variable takes 4
+    // bytes in the binary, we multiple the number of variables by 4 to determine the size of the array.
+    Byte *contents = new Byte[mInstrs.size() * 4];
+    
+    // Create a constant iterator over the map mVars. The iterator is const because we are not going to
+    // be modifying the Variable objects as we iterate over them. If you want to create a non-const
+    // iterator then you would write,
+    //
+    // std::map<std::string, Variable>::iterator it = mVars.begin();
+    
+    std::map<std::string, Variable>::const_iterator it = mInstrs.begin();
+    
+    // Iterate over each element of the map.
+    while (it != mInstrs.end()) {
+        
+        // 'it' is a pointer to the element. (*it) dereferences 'it' and then we retrieve the value
+        // of this map element by accessing the 'second' data member of the iterator. Since the map
+        // values are Variables, this is a Variable object.
+        Instr instr = (*it).second;
+        
+        // Get the initial value of the variable. Note: the initial value is stored in 2's complement
+        // notation (to handle negative initial values) so the data type returned is int32 rather than
+        // Word (Word is an unsigned data type).
+        Word encoding = instr.GetEncoding();
+        
+        // Copy the initValue into the contents array.
+        memcpy(&contents[offset], reinterpret_cast<Byte *>(&encoding), 4);
+        
+        // Bump offset up by 4.
+        offset += 4;
+        
+        // Iterate to the next element of the map.
+        ++it;
+    }
+    
+    // Return the dynamically allocated array. Note that the Binary::Write() function deallocates this
+    // array.
+    return contents;
+//*********************************************************************************************
 }
 
 //--------------------------------------------------------------------------------------------------------------

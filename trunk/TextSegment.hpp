@@ -34,6 +34,7 @@ using namespace std;
 #include "Label.hpp"
 #include "Segment.hpp"
 #include "Types.hpp"
+#include "Variable.hpp"
 
 //==============================================================================================================
 // CLASS: TextSegment (derived from Segment)
