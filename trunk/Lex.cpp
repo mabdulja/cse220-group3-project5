@@ -79,7 +79,7 @@ std::string Lex::NextToken()
     do {
         {
             mFin >> token;
-            if(Lex::mFin == false)
+            if(!Lex::mFin)
             {
                 return "";
             }
