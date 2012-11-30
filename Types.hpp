@@ -32,23 +32,6 @@ typedef unsigned long       ulong;
 typedef unsigned short      ushort;
 typedef long double         ldouble;
 
-#ifdef _32_BIT_
-    typedef char            int8;
-    typedef short           int16;
-    typedef int             int32;
-    typedef uchar           uint8;
-    typedef ushort          uint16;
-    typedef uint            uint32;
-#elif _64_BIT_
-    // If you have a 64-bit cpu, then you will have to figure out what these should be equivalent to.
-    typedef char            int8;
-    typedef short           int16;
-    typedef int             int32;
-    typedef uchar           uint8;
-    typedef ushort          uint16;
-    typedef uint            uint32;
-#endif
-
 typedef char            int8;
 typedef short           int16;
 typedef int             int32;

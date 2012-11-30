@@ -30,12 +30,11 @@
 // data member inherited from Operand.
 //--------------------------------------------------------------------------------------------------------------
 
-Operand::Operand
+Register::Register
     (
     std::string const& pOpString
     )
-    :
-    mOpString(pOpString)
+    : Operand::Operand(pOpString)
 {
 }
 
