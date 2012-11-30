@@ -183,6 +183,11 @@ Byte *TextSegment::GetContents() const
 // Retrieves the Label object with name pName from the mLabels map.
 //--------------------------------------------------------------------------------------------------------------
 
+Label TextSegment::GetLabel(const string &pName)
+{
+    return TextSegment::mLabels[pName];
+}
+
 
 //--------------------------------------------------------------------------------------------------------------
 // GetSize()
@@ -199,11 +204,22 @@ Byte *TextSegment::GetContents() const
 // See DataSegment::GetSize().
 //--------------------------------------------------------------------------------------------------------------
 
+uint32 TextSegment::GetSize() const
+{
+    {
+        return (uint32) (9 + 4 * mLabels.size());
+    }
+}
 
 //--------------------------------------------------------------------------------------------------------------
 // Overload operator=
 //--------------------------------------------------------------------------------------------------------------
 
+TextSegment& TextSegment::operator=(const TextSegment &pTextSegment)
+{
+    if (this != &pTextSegment) Copy(pTextSegment);
+    return *this;
+}
 
 //==============================================================================================================
 // PROTECTED FUNCTION MEMBERS
@@ -221,6 +237,11 @@ Byte *TextSegment::GetContents() const
 // Assign pTextSegment.mLabels to mLabels.  -- Will invoke std::map::operator=() on mLabels.
 //--------------------------------------------------------------------------------------------------------------
 
+void TextSegment::Copy(const TextSegment &pTextSegment)
+{
+    Segment::Copy(pTextSegment);
+    mLabels = pTextSegment.mLabels;
+}
 
 //==============================================================================================================
 // PRIVATE FUNCTION MEMBERS
