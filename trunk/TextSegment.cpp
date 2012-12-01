@@ -207,7 +207,7 @@ Label TextSegment::GetLabel(const string &pName)
 uint32 TextSegment::GetSize() const
 {
     {
-        return (uint32) (9 + 4 * mLabels.size());
+        return (uint32) (9 + 4 * mInstrs.size());
     }
 }
 
