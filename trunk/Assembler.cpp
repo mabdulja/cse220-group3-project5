@@ -360,7 +360,7 @@ Instr *Assembler::AssembleInstrTypeRV(string const& pMnemonic, string const& pLa
 
     string strReg;
     string strVar;
-    if(pMnemonic == "LD" || "LDA")
+    if(pMnemonic == "LD" || pMnemonic == "LDA")
     {
         strReg = mLex.NextToken();
         strVar = mLex.NextToken();
