@@ -132,8 +132,7 @@ void InstrTypeRI::Copy
     // Copy the base class (Instr) data members to 'this'.
     InstrTypeRI::Copy(pInstr);
     
-    // Copy the derived class (InstrTypeR) data members to 'this'.
-    SetRegister(pInstr.GetRegister());
+    SetInteger(pInstr.GetInteger());
     
     // Encode because the register has changed.
     Encode();
