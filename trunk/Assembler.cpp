@@ -149,7 +149,7 @@ void Assembler::Assemble(const uint pPass)
 {
     mCurrAddr = 0;
     string token = mLex.NextToken();
-    while (token == "") 
+    while (token != "")
     {
         
         if (token[0] == '.')
