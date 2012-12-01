@@ -29,7 +29,7 @@
 #define DATASEGMENT_HPP
 
 #include <map>
-#include <string>
+#include <string.h>
 #include "Segment.hpp"
 #include "Types.hpp"
 #include "Variable.hpp"
