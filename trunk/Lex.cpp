@@ -108,7 +108,7 @@ std::string Lex::NextToken()
 void Lex::Reset()
 {
     Lex::mFin.close();
-    Lex::mFin.open(mSrcFname.c_str(), 'r');
+    Lex::mFin.open(mSrcFname.c_str(), std::ios_base::in | std::ios_base::out);
 }
 
 //--------------------------------------------------------------------------------------------------------------
