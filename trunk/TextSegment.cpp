@@ -240,6 +240,7 @@ TextSegment& TextSegment::operator=(const TextSegment &pTextSegment)
 void TextSegment::Copy(const TextSegment &pTextSegment)
 {
     Segment::Copy(pTextSegment);
+    mInstrs = pTextSegment.mInstrs;
     mLabels = pTextSegment.mLabels;
 }
 
