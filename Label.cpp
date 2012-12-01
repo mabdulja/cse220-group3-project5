@@ -84,7 +84,7 @@ std::string Label::GetName
     )
     const
 {
-    return GetString();
+    return Operand::GetString();
 }
 
 //--------------------------------------------------------------------------------------------------------------
@@ -124,7 +124,7 @@ void Label::SetName
     std::string const& pName
     )
 {
-    SetString(pName);
+    Operand::SetString(pName);
 }
 
 //==============================================================================================================
