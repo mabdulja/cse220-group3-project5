@@ -130,7 +130,7 @@ void InstrTypeRI::Copy
  )
 {
     // Copy the base class (Instr) data members to 'this'.
-    InstrTypeRI::Copy(pInstr);
+    InstrTypeR::Copy(pInstr);
     
     SetInteger(pInstr.GetInteger());
     
