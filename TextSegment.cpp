@@ -86,8 +86,8 @@ TextSegment::~TextSegment()
 
 void TextSegment::AddInstr(Instr *pInstr)
 {
-// TODO: do stuff here
-    // DO STUFF HERE!!!
+    pInstr->Encode();
+    mInstrs.push_back(*pInstr);
 }
 
 //--------------------------------------------------------------------------------------------------------------
