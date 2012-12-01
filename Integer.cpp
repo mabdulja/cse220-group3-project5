@@ -20,7 +20,7 @@
 #include <sstream>      // For stringstream class.
 #include "Integer.hpp"
 #include <cstring>
-#include <string>
+#include <string.h>
 
 using namespace std;
 //==============================================================================================================
@@ -42,7 +42,6 @@ using namespace std;
 //--------------------------------------------------------------------------------------------------------------
 Integer::Integer(string const& pValue) : Operand(pValue)
 {
-    const char *newStr = pValue.c_str();
     int pInt = atoi(pValue.c_str());
     mInt = pInt;
 }
