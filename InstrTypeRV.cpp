@@ -48,9 +48,9 @@ InstrTypeRV::InstrTypeRV
     Variable const&    pVariable
     )
     :
-    InstrTypeR(pMnemonic, pRegister),
-    mVariable(pVariable)
+    InstrTypeR(pMnemonic, pRegister)
 {
+    mVariable = pVariable;
 }
 
 //--------------------------------------------------------------------------------------------------------------
