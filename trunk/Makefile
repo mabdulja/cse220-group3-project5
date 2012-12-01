@@ -1,8 +1,8 @@
 #!/bin/bash
 # File: Makefile
 
-bla: Args.o Instr.o InstrTypeRV.o Main.o TextSegment.o Operand.o Assembler.o InstrTypeB.o Integer.o Variable.o Register.o Binary.o InstrTypeR.o Label.o Segment.o DataSegment.o InstrTypeRI.o Lex.o TextSegment.o
-	g++ Args.o Instr.o InstrTypeRV.o Main.o TextSegment.o Operand.o Assembler.o InstrTypeB.o Integer.o Variable.o Register.o Binary.o InstrTypeR.o Label.o Segment.o DataSegment.o InstrTypeRI.o Lex.o TextSegment.o -o bla
+bla: Args.o Instr.o InstrTypeRV.o Main.o TextSegment.o Operand.o Assembler.o InstrTypeB.o Integer.o Variable.o Register.o Binary.o InstrTypeR.o Label.o Segment.o DataSegment.o InstrTypeRI.o Lex.o
+	g++ Args.o Instr.o InstrTypeRV.o Main.o TextSegment.o Operand.o Assembler.o InstrTypeB.o Integer.o Variable.o Register.o Binary.o InstrTypeR.o Label.o Segment.o DataSegment.o InstrTypeRI.o Lex.o -o bla
 	rm -f *.o
 
 Args.o: Args.cpp
@@ -58,6 +58,3 @@ InstrTypeRI.o: InstrTypeRI.cpp
 
 Lex.o: Lex.cpp
 	g++ -c Lex.cpp
-
-TextSegment.o: TextSegment.cpp
-	g++ -c TextSegment.cpp
