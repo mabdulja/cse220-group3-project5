@@ -44,7 +44,7 @@ InstrTypeRI::InstrTypeRI()
 InstrTypeRI::InstrTypeRI(string const& pMnemonic, Register const& pReg, Integer const& pInt):
 InstrTypeR(pMnemonic, pReg)
 {
-    InstrTypeRI::mInteger = pInt;
+    mInteger = pInt;
 }
 
 //--------------------------------------------------------------------------------------------------------------
@@ -55,7 +55,7 @@ InstrTypeR(pMnemonic, pReg)
 //--------------------------------------------------------------------------------------------------------------
 InstrTypeRI::InstrTypeRI(InstrTypeRI const& pInstr)
 {
-    InstrTypeRI::Copy(pInstr);
+    Copy(pInstr);
 }
 
 //--------------------------------------------------------------------------------------------------------------
@@ -97,7 +97,7 @@ void InstrTypeRI::Encode
 //--------------------------------------------------------------------------------------------------------------
 Integer InstrTypeRI::GetInteger() const
 {
-    return InstrTypeRI::mInteger;
+    return mInteger;
 }
 
 //--------------------------------------------------------------------------------------------------------------
@@ -146,7 +146,7 @@ void InstrTypeRI::Copy
 //--------------------------------------------------------------------------------------------------------------
 void InstrTypeRI::SetInteger(const Integer &pInteger)
 {
-    InstrTypeRI::mInteger = pInteger;
+    mInteger = pInteger;
 }
 
 //==============================================================================================================
