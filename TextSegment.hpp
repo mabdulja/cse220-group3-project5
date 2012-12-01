@@ -29,7 +29,7 @@ using namespace std;
 // Figure out what header file you have to include to use the C++ STL std::vector class.
 
 
-#include <string>
+#include <string.h>
 #include "Instr.hpp"
 #include "Label.hpp"
 #include "Segment.hpp"
