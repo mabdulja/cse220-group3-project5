@@ -20,7 +20,7 @@
 #define LEX_HPP
 
 #include <fstream>
-#include <string>
+#include <string.h>
 
 #include "Types.hpp"
 
