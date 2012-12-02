@@ -30,10 +30,9 @@
 // initialize mAddress to pAddress, and to initialize mInitValue to pInitValue. The body of the constructor is
 // empty.
 //--------------------------------------------------------------------------------------------------------------
-Variable::Variable(std::string const& pName, Address const pAddress, Word const pInitValue) : Operand(pName)
+Variable::Variable(std::string const& pName, Address const pAddress, Word const pInitValue) : Operand(pName), mAddress(pAddress), mInitValue(pInitValue)
 {
-    mAddress = pAddress;
-    mInitValue = pInitValue;
+    
 }
 
 //--------------------------------------------------------------------------------------------------------------
@@ -89,7 +88,7 @@ int32 Variable::GetInitValue() const
 //--------------------------------------------------------------------------------------------------------------
 std::string Variable::GetName() const
 {
-    return Variable::Operand::GetString();
+    return Operand::GetString();
 }
 
 //--------------------------------------------------------------------------------------------------------------
@@ -110,7 +109,7 @@ Variable& Variable::operator=(Variable const& pVariable)
 //--------------------------------------------------------------------------------------------------------------
 void Variable::SetAddress(const Address pAddress)
 {
-    Variable::mAddress = pAddress;
+    mAddress = pAddress;
 }
 
 //--------------------------------------------------------------------------------------------------------------
@@ -121,7 +120,7 @@ void Variable::SetAddress(const Address pAddress)
 //--------------------------------------------------------------------------------------------------------------
 void Variable::SetInitValue(const int32 pInitValue)
 {
-    Variable::mInitValue = pInitValue;
+    mInitValue = pInitValue;
 }
 
 //--------------------------------------------------------------------------------------------------------------
@@ -133,7 +132,7 @@ void Variable::SetInitValue(const int32 pInitValue)
 //--------------------------------------------------------------------------------------------------------------
 void Variable::SetName(const std::string &pName)
 {
-    Variable::Operand::SetString(pName);
+    Operand::SetString(pName);
 }
 
 //==============================================================================================================
@@ -154,8 +153,8 @@ void Variable::SetName(const std::string &pName)
 void Variable::Copy(Variable const& pVariable)
 {
     Operand::Copy(pVariable);
-    SetAddress(pVariable.GetAddress());
-    SetInitValue(pVariable.GetInitValue());
+    mAddress = pVariable.mAddress;
+    mInitValue = pVariable.mInitValue;
 }
 
 //==============================================================================================================
